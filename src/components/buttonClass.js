@@ -1,6 +1,9 @@
 import React, { Component } from 'react'
+import Button from './Button';
 
 export default class ButtonClass extends Component {
+
+
 
     constructor(props) {
         super(props);
@@ -22,12 +25,10 @@ export default class ButtonClass extends Component {
         })
     }
 
-    componentDidMount(){
-        console.log("componentDidMount çalıştı")
+    componentDidMount() { 
     }
 
-    componentDidUpdate(){
-        console.log("componentDidUpdate çalıştı")
+    componentDidUpdate() { 
     }
 
     compo
@@ -35,10 +36,11 @@ export default class ButtonClass extends Component {
     render() {
         return (
             <div>
-                <h1>Class Component</h1>
+                <h1>{this.props.params.headerName}</h1>
+                <h1>{this.props.params.bodyName}</h1>
                 <p>{this.state.count}</p>
-                <button onClick={this.arttirFunc}>Arttır</button>
-                <button onClick={this.azaltFunc}>Azalt</button>
+                <Button color="black" backgroundColor="white" label="Arttır" func={this.arttirFunc}></Button>
+                <Button color="white" backgroundColor="black" label="Azalt" func={this.azaltFunc}></Button>
             </div>
         )
     }

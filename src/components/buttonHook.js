@@ -1,8 +1,11 @@
-import React, { useState, useEffect } from 'react'
-import Button from './Button';
+import React, { useState, useEffect,useRef } from 'react'
+import Button from './Button'; 
 
-function ButtonHook() {
+function ButtonHook({params}) {
+    const ref = useRef(null)
     const [count, setCount] = useState(0);
+
+    console.log("ref");
 
     const arttirFunc = () => {
         setCount(count + 1);
@@ -13,16 +16,18 @@ function ButtonHook() {
     }
 
     useEffect(() => {
-        console.log("Çalıştı");
-    }, [])
+         console.log("useEffect")
+    },[count])
 
     return (
         <div>
-            <h1>Hook Comnponent</h1>
+            <h1>{params.headerName}</h1>
+            <h1>{params.bodyName}</h1>
             <p>{count}</p>
             <Button color="red" backgroundColor="blue" label="Arttır" func={arttirFunc}></Button>
-         
-            <button onClick={azaltFunc}>Azalt</button>
+            <Button color="orange" backgroundColor="yellow" label="Azalt" func={azaltFunc}></Button>
+            <hr></hr> 
+          
 
         </div>
     )
